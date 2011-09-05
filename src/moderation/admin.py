@@ -54,8 +54,8 @@ class ModerationAdmin(admin.ModelAdmin):
         try:
             content_type = ContentType.objects.get_for_model(self.model)
             moderated_obj = ModeratedObject.objects.get(object_pk=object_id,
-            moderator = moderated_obj.moderator
                                                         content_type=content_type)
+            moderator = moderated_obj.moderator
             msg = self.get_moderation_message(moderated_obj.moderation_status,
                                               moderated_obj.moderation_reason,
                                               moderator.visible_until_rejected)
